@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .main{
+            width: 100vw;
+            height: 150px;
+            border: 3px solid yellowgreen;
+            background-color: rgba(255, 255, 0, 0.582);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        h1{
+            font-family: sans-serif;
+            font-weight: 300;
+        }
+        p{
+            margin-top: 20px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .main2{
+            width: 100vw;
+            height: 500px;
+            border: 1px solid;
+        }
+        .input1{
+            width: 300px;
+            height:40px;
+            margin-left: 300px;
+            margin-top: 50px;
+            font-size: 18px;
+            padding-left: 10px;
+        }
+        .input2{
+            width: 300px;
+            height: 40px;
+            border: 1px solid;
+            margin-left: 20px;
+            padding-left:20px ;
+            font-size: 18px;
+        }
+        .btn{
+            width: 100px;
+            height: 40px;
+            background-color: blueviolet;
+            color: white;
+        }
+        .output{
+            width: 60vw;
+            height:350px;
+            margin-left: 20vw;
+            margin-top: 40px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Bookmaker Application</h1>
+        <p>Bookmark your favorite Websites and Links</p>
+    </div>
+    <div class="main2">
+        <input class="input1" type="text" placeholder="Enter URL...">
+        <input class="input2" type="text" placeholder="Enter title">
+        <button class="btn">Bookmark</button>
+        <div class="output">
+            <ul class="output-list">
+
+            </ul>
+        </div>
+    </div>
+    <script>
+        var urlInput=document.querySelector(".input1")
+        console.log(urlInput);
+        var titleInput=document.querySelector(".input2")
+        console.log(titleInput);
+        var btn=document.querySelector(".btn")
+        console.log(btn);
+        var output=document.querySelector(".output-list")
+            console.log(output);
+            btn.addEventListener("click",addtolist)
+            output.addEventListener("click",deleteItem)
+            output.addEventListener("click",edititem)
+            function addtolist(e){
+                var url=urlInput.value
+                var title=titleInput.value
+                var editItem=document.querySelector(".maker")  
+                e.preventDefault()
+                if(!editItem){
+                    if(url !="" && title !=""){
+                        show(url,item);
+                        urlInput.value="";
+                        titleInput.value=""
+                        titleInput.value=""
+
+                    }
+                }
+            
+            }  
+            function show(url,item){
+                var li=document.createElement("li")
+                var a=document.createElement("a")
+                a.setAttribute("href",url)
+                a.setAttribute("target","_blank")
+                a.textContent=title
+                li.appendChild(a)
+
+            }     
+    </script>
+</body>
+</html>
